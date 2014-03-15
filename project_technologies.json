@@ -9,7 +9,7 @@
         "toolkits": [
             "opengl"
         ],
-         "langiages": [
+         "languages": [
             "objective-c", 
             "c++", 
             "python"
