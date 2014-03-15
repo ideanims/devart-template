@@ -1,13 +1,13 @@
 {
     "technologies": {
         "apis": [
-            "insert apis"
+            "twitter"
         ],
         "platforms": [
-            "insert platforms"
+            "arduino"
         ],
         "toolkits": [
-            "insert toolkits"
+            "opengl"
         ]
     },
     "themes": [
