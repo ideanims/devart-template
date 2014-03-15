@@ -8,6 +8,11 @@
         ],
         "toolkits": [
             "opengl"
+        ],
+         "langiages": [
+            "objective-c", 
+            "c++", 
+            "python"
         ]
     },
     "themes": [
