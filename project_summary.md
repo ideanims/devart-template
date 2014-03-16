@@ -1,8 +1,8 @@
 # Project Title
-Alice
+<H2>Alice</H2>
 
 ## Authors
-Rajan, Ayyappan, ideanims
+Rajan Ayyappan, https://github.com/ideanims
 
 
 ## Description
