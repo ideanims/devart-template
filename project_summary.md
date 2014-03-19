@@ -1,9 +1,8 @@
-# Project Title
-Alice
+# Alice
 
-## Authors
-Rajan Ayyappan, https://github.com/ideanims
-
+## Rajan Ayyappan
+https://github.com/ideanims
+@ideanims
 
 ## Description
 
