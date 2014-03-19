@@ -14,10 +14,10 @@ A rough sketch is included below.
 
 I was able to create some of it using OpenGL in a Mac OSX/XCode project. More work needs to be done. 
 
-![Canvas Elements](../project_images/sketch02Tweets.jpg?raw=true "Canvas Elements")
+![Canvas Elements](../project_images/sketch02TweetsRSz.jpg?raw=true "Canvas Elements")
 
 
-Hardware side:
+On the Hardware Side:
 
 I also started looking into communication needs between the Mac and the Arduino piece. Bluetooth may be sufficient, since there will be limited amount of data flowing from the Arduino piece to the Mac, and practically nothing in the opposite direction. Wi-Fi would really be an overkill. iPhone app's role is not yet clear. But if used, Wi-Fi might work out better for that segment. There will be no communication between the Arduino piece and the iPhone app. 
 
