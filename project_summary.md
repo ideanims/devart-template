@@ -1,5 +1,5 @@
 # Project Title
-<H2>Alice</H2>
+Alice
 
 ## Authors
 Rajan Ayyappan, https://github.com/ideanims
@@ -7,7 +7,10 @@ Rajan Ayyappan, https://github.com/ideanims
 
 ## Description
 
-My goal is to use the energy within tweets to drive an interactive decision graph that will randomly supplement the visual imagery with content from other sources using multiple tools and APIs.   
+Alice uses the familiar computer display as a digital canvas to capture the energy within tweets and to drive an interactive decision graph that will randomly supplement the visual imagery with content from other sources using multiple tools and APIs.   
+
+Lewis Carrol's classic about Alice in Wonderland provides a thematic backdrop and also enhances an awareness of the time shift in this digital art experiment. 
+
 
 ## Link to Prototype
 Coming soon.
