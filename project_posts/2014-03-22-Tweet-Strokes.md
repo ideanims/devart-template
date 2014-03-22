@@ -1,26 +1,92 @@
-Canvas Elements: 
+##Tweet Components 
 
-After so much of rough sketching, reviews, revisions etc., it was time to put the design elements on paper. 
-So the canvas version one is here. 
+Tweets play a key role in my project. So it was important to make sure we didn't run into any showstoppers there. 
+So I had to first write the code that gets tweets into the project in sufficient numbers so the dynamic art keeps breathing. 
 
-I am also updating the project main page with a detailed description. For this post anyway, briefly, the bulk of the project 'output' will be on the canvas, created using the display attached to the Mac. 
+That was almost straightforward in the sense there were so many sample projects and code out there to pull tweets into your website using their APIs. In our case though, we wanted the raw tweets, so we could run some logic on them. It is after all based on Alice story, known for puzzles and logic play. And we wanted them not on a website, but in a desktop Mac environment.  
+Not a problem. Got a sample, tweaked a bit and there, I got my first set of tweets flowing through a Mac/XCode app. 
+One thing we may have to do is to build a local buffer of tweets since there are caps imposed by Twitter on API calls. 
 
-The canvas shows a cross section of the underground referred in the story, where Alice falls through a rabbit hole. 
-On the canvas, we have rows and rows of inverted "Y" images representing the path downwards. 
+Here is some sample code: 
 
-Each of these images will be tied to some content on the Internet almost in realtime. 
+```
+#import "TwitterAdapter.h"
+#import "AppDelegate.h"
 
-A rough sketch is included below. 
+@interface TwitterAdapter ()
 
-I was able to create some of it using OpenGL in a Mac OSX/XCode project. More work needs to be done. 
+@property (strong, nonatomic) ACAccountStore *accountStore;
 
-![Canvas Elements](../project_images/sketch02Tweets.jpg?raw=true "Canvas Elements")
-
-
-Hardware side:
-
-I also started looking into communication needs between the Mac and the Arduino piece. Bluetooth may be sufficient, since there will be limited amount of data flowing from the Arduino piece to the Mac, and practically nothing in the opposite direction. Wi-Fi would really be an overkill. iPhone app's role is not yet clear. But if used, Wi-Fi might work out better for that segment. There will be no communication between the Arduino piece and the iPhone app. 
+@end
 
 
-It is exciting to see small pieces of the puzzle falling into place. The big ones are still moving around. 
+@implementation TwitterAdapter
+
+- (void)refreshTwitterFeedWithCompletion:(void (^)(NSArray* jsonResponse))completion {
+    if(!self.account){
+        ACAccountStore* store = [AppDelegate instance].accountStore;
+        [self accessTwitterAccountWithAccountStore:store];
+        return;
+    }
+    NSURL* url = [NSURL URLWithString:@"https://api.twitter.com/1.1/statuses/user_timeline.json"];
+    NSDictionary* params = @{@"count" : @"50", @"screen_name" : @"rajan2100"};
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                            requestMethod:SLRequestMethodGET
+                                                      URL:url parameters:params];
+    request.account = self.account;
+    [request performRequestWithHandler:^(NSData *responseData,
+                                         NSHTTPURLResponse *urlResponse, NSError *error) {
+        if (error)
+        {
+            NSString* errorMessage = [NSString stringWithFormat:@"Error reading Twitter feed. %@",
+                                      [error localizedDescription]];
+            [[AppDelegate instance] showError:errorMessage];
+        }
+        else
+        {
+            NSError *jsonError;
+            NSArray *responseJSON = [NSJSONSerialization
+                                     JSONObjectWithData:responseData
+                                     options:NSJSONReadingAllowFragments
+                                     error:&jsonError];
+            if (jsonError)
+            {
+                NSString* errorMessage = [NSString stringWithFormat:@"JSON Error reading Twitter feed. %@",
+                                          [jsonError localizedDescription]];
+                [[AppDelegate instance] showError:errorMessage];
+            }
+            else
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(completion){
+                        completion(responseJSON);
+                    }
+                });
+            }
+        }
+    }];
+}
+@end
+```
+
+
+##Tweet Graphics 
+
+I also worked on the OpenGL part to produce hundreds of those tweet shells and tweet spots you see in this image. They are not drawn to scale. Then we have to add the main animation. That is the fun part.  
+
+![Tweet Strokes](../project_images/DAUpdate3Img.jpg?raw=true "Tweet Strokes")
+
+
+
+##Hardware 
+
+On the hardware side, I have tested the microphone and amplifier, but need to pass some audio through the arduino board. To add another dimension to the immersive experience. 
+
+With barely a week to go, I am glad the project is shaping up well. 
+
+I haven't still decided whether the small iPad app would add value to the project. I have something working, but let us see how the rest of the project shapes up. 
+
+Another update in 2 days and then it is time to wrap it all up. Looking forward to an exciting finish line. 
+
+
 
