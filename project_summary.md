@@ -11,17 +11,20 @@ Alice uses the familiar computer display as a digital canvas to capture the ener
 
 Lewis Carrol's classic about Alice in Wonderland provides a thematic backdrop and also enhances an awareness of the time shift in this digital art experiment. 
 
+The project uses OpenGL, XCode, C++, Objective-C, Twitter API etc. and involves rendering a dynamic image interrupted by Alice spotting. 
+
+Project not ready for submission. Work continued separately. 
 
 ## Link to Prototype
-Coming soon.
+[in progress].
 
 
 ## Example Code
-Coming soon.
+[in progress].
 
 
 ## Links to External Libraries
-Coming soon.
+[in progress].
 
 
 ## Images & Videos
