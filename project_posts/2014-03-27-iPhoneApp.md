@@ -8,13 +8,14 @@ The app has two screens, the first one to start and stop the animation and the s
 
 Here are screenshots of the iPhone app:
 
-1:  Animation Launcher
+This one launches the OpenGL animation:
+
 ![Animation Launcher](../project_images/AliceMobi1.jpg?raw=true "Launch Animation")
 
 
-2. Alice Locator 
-![Alice Locator](../project_images/AliceMobi2.jpg?raw=true "Tweet Location")
+This one is used by the audience to tweet the location of Alice, which will be responded to by the animation. 
 
+![Alice Locator](../project_images/AliceMobi2.jpg?raw=true "Tweet Location")
 
 I am wrapping up the main OpenGL app, also done in an Xcode environment. 
 Everything should be up on the site soon, with less than a day left! 
